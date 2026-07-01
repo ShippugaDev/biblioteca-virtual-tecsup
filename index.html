@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Biblioteca Virtual · Tecsup</title>
+
+  <!-- Tipografías: Fraunces (títulos, con carácter académico) + Plus Jakarta Sans (texto, limpia y legible) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+  <!--
+  NOTA: Esta página contiene únicamente la sección "Biblioteca Virtual"
+  rediseñada. En el sitio real de Tecsup, esta sección se insertaría
+  dentro de la página existente, sin afectar el resto del contenido.
+-->
+
+  <main>
+    <section class="biblioteca" id="biblioteca-virtual" aria-labelledby="biblioteca-titulo">
+
+      <!-- Elementos decorativos de fondo (puramente visuales) -->
+      <div class="biblioteca__ambient" aria-hidden="true">
+        <span class="blob blob--sky"></span>
+        <span class="blob blob--mint"></span>
+        <div class="paper-grid"></div>
+      </div>
+
+      <div class="biblioteca__inner">
+
+        <!-- ===== Encabezado ===== -->
+        <header class="biblioteca__header reveal" data-reveal>
+          <p class="eyebrow">CEDITEC · Centro de Recursos Académicos</p>
+          <h2 id="biblioteca-titulo" class="biblioteca__title">Biblioteca Virtual</h2>
+          <p class="biblioteca__subtitle">Un espacio tranquilo para leer, investigar y avanzar a tu propio ritmo.</p>
+
+          <svg class="biblioteca__glyph" aria-hidden="true" viewBox="0 0 120 90" fill="none">
+            <path d="M4 14c14-8 32-8 46 4v58C36 64 18 64 4 72V14Z" stroke="currentColor" stroke-width="2.5"
+              stroke-linejoin="round" />
+            <path d="M116 14c-14-8-32-8-46 4v58c14-12 32-12 46-4V14Z" stroke="currentColor" stroke-width="2.5"
+              stroke-linejoin="round" />
+            <path d="M60 18v58" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" />
+          </svg>
+        </header>
+
+        <!-- ===== Introducción ===== -->
+        <div class="biblioteca__intro reveal" data-reveal>
+          <div class="intro-text">
+            <p>
+              La Biblioteca Virtual del CEDITEC contiene información actualizada a texto completo,
+              libros y revistas en formato digital de alta calidad académica. Son elaborados por
+              expertos de todo el mundo y tratan sobre las principales áreas de tecnología y negocios.
+            </p>
+          </div>
+
+          <aside class="intro-quote" aria-label="Frase motivadora">
+            <span class="intro-quote__mark" aria-hidden="true">&ldquo;</span>
+            <p>Cada recurso que consultas te acerca a una nueva oportunidad de aprender, investigar y crecer
+              profesionalmente.</p>
+          </aside>
+        </div>
+
+        <!-- ===== Aviso de acceso ===== -->
+        <div class="access-note reveal" data-reveal>
+          <span class="access-note__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none">
+              <path d="M12 15v3m-5-3h10a1 1 0 0 0 1-1v-6a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1Z"
+                stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" />
+              <path d="M9 10V7a3 3 0 1 1 6 0v3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+            </svg>
+          </span>
+          <p>
+            Para acceder a las bases de datos, es necesario ingresar al <strong>Sistema de Biblioteca</strong>
+            con su usuario y clave de acceso.
+          </p>
+        </div>
+
+        <!-- ===== Buscador y filtros ===== -->
+        <div class="toolbar reveal" data-reveal>
+          <form class="search" role="search" onsubmit="return false">
+            <label for="buscador" class="sr-only">Buscar recurso por nombre o descripción</label>
+            <svg class="search__icon" aria-hidden="true" viewBox="0 0 24 24" fill="none">
+              <circle cx="11" cy="11" r="6.5" stroke="currentColor" stroke-width="1.8" />
+              <path d="m20 20-3.5-3.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+            </svg>
+            <input type="search" id="buscador" placeholder="Buscar por nombre o descripción…" autocomplete="off">
+          </form>
+
+          <div class="filters" role="group" aria-label="Filtrar por tipo de recurso">
+            <button type="button" class="filter-chip is-active" data-filter="todos" aria-pressed="true">Todos</button>
+            <button type="button" class="filter-chip" data-filter="libros" aria-pressed="false">Libros
+              digitales</button>
+            <button type="button" class="filter-chip" data-filter="base" aria-pressed="false">Base académica</button>
+            <button type="button" class="filter-chip" data-filter="investigacion"
+              aria-pressed="false">Investigación</button>
+            <button type="button" class="filter-chip" data-filter="plataforma" aria-pressed="false">Plataforma
+              digital</button>
+          </div>
+        </div>
+
+        <p class="counter" id="contador" aria-live="polite">Mostrando 6 de 6 recursos</p>
+
+        <!-- ===== Grid de recursos ===== -->
+        <div class="grid" id="grid-recursos">
+
+          <article class="card reveal" data-reveal data-type="libros" data-name="Gale eBooks"
+            data-desc="Accede a libros digitales de alta calidad académica para investigación multidisciplinaria.">
+            <div class="resource-logo" data-fallback="Gale eBooks">
+              <img src="assets/img/gale-ebooks.png" alt="Logo de Gale eBooks" loading="lazy">
+            </div>
+            <span class="card__tag" data-tag="libros">
+              <span class="card__tag-icon" data-icon="libros" aria-hidden="true"></span>
+              Libros digitales
+            </span>
+            <h3 class="card__name">Gale eBooks</h3>
+            <p class="card__desc">Accede a libros digitales de alta calidad académica para investigación
+              multidisciplinaria.</p>
+            <a class="card__btn" target="_blank" href="https://link.gale.com/apps/menu?userGroupName=tecsup&prodId=MENU"
+              aria-label="Acceder a Gale eBooks">
+              Acceder
+              <svg aria-hidden="true" viewBox="0 0 20 20" fill="none">
+                <path d="M4 10h12m0 0-5-5m5 5-5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </svg>
+            </a>
+          </article>
+
+          <article class="card reveal" data-reveal data-type="base" data-name="Gale OneFile Informe Académico"
+            data-desc="Consulta revistas, artículos académicos y publicaciones especializadas en español y portugués.">
+            <div class="resource-logo" data-fallback="Gale OneFile Informe Académico">
+              <img src="assets/img/gale-onefile.png" alt="Logo de Gale OneFile Informe Académico" loading="lazy">
+            </div>
+            <span class="card__tag" data-tag="base">
+              <span class="card__tag-icon" data-icon="base" aria-hidden="true"></span>
+              Base académica
+            </span>
+            <h3 class="card__name">Gale OneFile Informe Académico</h3>
+            <p class="card__desc">Consulta revistas, artículos académicos y publicaciones especializadas en español y
+              portugués.</p>
+            <a class="card__btn" target="_blank" href="https://link.gale.com/apps/menu?userGroupName=tecsup&prodId=MENU"
+              aria-label="Acceder a Gale OneFile Informe Académico">
+              Acceder
+              <svg aria-hidden="true" viewBox="0 0 20 20" fill="none">
+                <path d="M4 10h12m0 0-5-5m5 5-5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </svg>
+            </a>
+          </article>
+
+          <article class="card reveal" data-reveal data-type="libros" data-name="Cengage E-book"
+            data-desc="Explora materiales digitales orientados al aprendizaje técnico y profesional.">
+            <div class="resource-logo" data-fallback="Cengage E-book">
+              <img src="assets/img/cengage-ebook.png" alt="Logo de Cengage E-book" loading="lazy">
+            </div>
+            <span class="card__tag" data-tag="libros">
+              <span class="card__tag-icon" data-icon="libros" aria-hidden="true"></span>
+              Libros digitales
+            </span>
+            <h3 class="card__name">Cengage E-book</h3>
+            <p class="card__desc">Explora materiales digitales orientados al aprendizaje técnico y profesional.</p>
+            <a class="card__btn" target="_blank" href="https://www.ebooks7-24.com/biblioteca.aspx"
+              aria-label="Acceder a Cengage E-book">
+              Acceder
+              <svg aria-hidden="true" viewBox="0 0 20 20" fill="none">
+                <path d="M4 10h12m0 0-5-5m5 5-5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </svg>
+            </a>
+          </article>
+
+          <article class="card reveal" data-reveal data-type="libros" data-name="Pearson E-book"
+            data-desc="Revisa libros académicos digitales para fortalecer tus conocimientos en distintas áreas.">
+            <div class="resource-logo" data-fallback="Pearson E-book">
+              <img src="assets/img/pearson-ebook.png" alt="Logo de Pearson E-book" loading="lazy">
+            </div>
+            <span class="card__tag" data-tag="libros">
+              <span class="card__tag-icon" data-icon="libros" aria-hidden="true"></span>
+              Libros digitales
+            </span>
+            <h3 class="card__name">Pearson E-book</h3>
+            <p class="card__desc">Revisa libros académicos digitales para fortalecer tus conocimientos en distintas
+              áreas.</p>
+            <a class="card__btn" target="_blank" href="https://www.ebooks7-24.com/biblioteca.aspx"
+              aria-label="Acceder a Pearson E-book">
+              Acceder
+              <svg aria-hidden="true" viewBox="0 0 20 20" fill="none">
+                <path d="M4 10h12m0 0-5-5m5 5-5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </svg>
+            </a>
+          </article>
+
+          <article class="card reveal" data-reveal data-type="investigacion" data-name="EBSCOhost"
+            data-desc="Accede a bases de datos académicas, artículos, revistas y recursos de investigación.">
+            <div class="resource-logo" data-fallback="EBSCOhost">
+              <img src="assets/img/ebscohost.jpg" alt="Logo de EBSCOhost" loading="lazy">
+            </div>
+            <span class="card__tag" data-tag="investigacion">
+              <span class="card__tag-icon" data-icon="investigacion" aria-hidden="true"></span>
+              Investigación
+            </span>
+            <h3 class="card__name">EBSCOhost</h3>
+            <p class="card__desc">Accede a bases de datos académicas, artículos, revistas y recursos de investigación.
+            </p>
+            <a class="card__btn" target="_blank"
+              href="https://search.ebscohost.com/login.aspx?authtype=ip,url,uid&custid=ns003565&groupid=main&profile=ehost"
+              aria-label="Acceder a EBSCOhost">
+              Acceder
+              <svg aria-hidden="true" viewBox="0 0 20 20" fill="none">
+                <path d="M4 10h12m0 0-5-5m5 5-5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </svg>
+            </a>
+          </article>
+
+          <article class="card reveal" data-reveal data-type="plataforma" data-name="AlphaCloud"
+            data-desc="Plataforma digital de acceso a recursos académicos y contenidos especializados.">
+            <div class="resource-logo" data-fallback="AlphaCloud">
+              <img src="assets/img/alphacloud.png" alt="Logo de AlphaCloud" loading="lazy">
+            </div>
+            <span class="card__tag" data-tag="plataforma">
+              <span class="card__tag-icon" data-icon="plataforma" aria-hidden="true"></span>
+              Plataforma digital
+            </span>
+            <h3 class="card__name">AlphaCloud</h3>
+            <p class="card__desc">Plataforma digital de acceso a recursos académicos y contenidos especializados.</p>
+            <a class="card__btn" target="_blank" href="https://www.alphaeditorialcloud.com/library"
+              aria-label="Acceder a AlphaCloud">
+              Acceder
+              <svg aria-hidden="true" viewBox="0 0 20 20" fill="none">
+                <path d="M4 10h12m0 0-5-5m5 5-5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </svg>
+            </a>
+          </article>
+
+        </div>
+
+        <!-- Estado vacío, se muestra solo si la búsqueda/filtro no encuentra nada -->
+        <p class="empty-state" id="empty-state" hidden>No se encontraron recursos que coincidan con tu búsqueda.</p>
+
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+
+</html>

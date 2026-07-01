@@ -1,0 +1,30 @@
+{
+  "permissions": {
+    "allow": [
+      "Skill(run)",
+      "Skill(run:*)",
+      "Bash(which chromium-cli *)",
+      "Read(//c/Users/JOELGU~1/AppData/Local/Temp/claude/bundled-skills/**)",
+      "Read(//c/Users/Joel Gutierrez/.claude/**)",
+      "Bash(find \"/c/Users/Joel Gutierrez/.claude\" -iname \"*chromium-cli*\" -maxdepth 6 2>/dev/null | head -20)",
+      "Bash(npx --version)",
+      "Bash(npm ls *)",
+      "Bash(node -e \"require.resolve\\('playwright'\\)\")",
+      "Read(//c/Users/Joel Gutierrez/AppData/Local/ms-playwright/**)",
+      "Read(//d//**)",
+      "Bash(mkdir -p \"/c/Users/JOELGU~1/AppData/Local/Temp/claude/d--Ciclo-5to-2026-biblioteca-virtual-tecsup/dc3653b7-7416-44ac-8e21-c9f052040381/scratchpad\")",
+      "Read(//c/Users/JOELGU~1/AppData/Local/Temp/claude/d--Ciclo-5to-2026-biblioteca-virtual-tecsup/dc3653b7-7416-44ac-8e21-c9f052040381/scratchpad/**)",
+      "Bash(npm init *)",
+      "Bash(npm install *)",
+      "Bash(node screenshot.js)",
+      "Bash(find \"/c/Users/Joel Gutierrez/AppData/Local/ms-playwright/chromium-1169\" -iname \"*.exe\" 2>/dev/null)",
+      "Read(//c/Users/Joel Gutierrez/AppData/Local/ms-playwright/chromium-1169/**)",
+      "Bash(node scroll-check.js)",
+      "Bash(node mobile-zoom3.js)",
+      "Bash(rm -f \"/c/Users/JOELGU~1/AppData/Local/Temp/claude/d--Ciclo-5to-2026-biblioteca-virtual-tecsup/dc3653b7-7416-44ac-8e21-c9f052040381/scratchpad\"/*.png)"
+    ],
+    "additionalDirectories": [
+      "C:\\Users\\JOELGU~1\\AppData\\Local\\Temp\\claude\\d--Ciclo-5to-2026-biblioteca-virtual-tecsup\\dc3653b7-7416-44ac-8e21-c9f052040381\\scratchpad"
+    ]
+  }
+}
