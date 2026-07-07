@@ -5,7 +5,7 @@
 
 :root {
   /* Paleta principal — identidad Tecsup: azul claro predominante */
-  --navy: #0e3a5c;
+  --navy: #429ce0;
   --blue: #1b6fa8;
   --blue-deep: #124d78;
   --sky: #e6f2fa;
@@ -420,9 +420,8 @@ body {
   border-color: var(--accent);
 }
 
-/* Transición suave al filtrar: la tarjeta se desvanece antes de salir del flujo.
-   Especificidad alta para ganarle a .reveal.is-visible (misma tarjeta tiene ambas clases). */
-.card.reveal.is-filtering-out {
+/* Transición suave al filtrar: la tarjeta se desvanece antes de salir del flujo */
+.card.is-filtering-out {
   opacity: 0;
   transform: scale(0.95);
 }
