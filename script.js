@@ -1,54 +1,37 @@
 /* =========================================================
    BIBLIOTECA VIRTUAL — TECSUP
-   JavaScript simple: búsqueda, filtros, contador y animaciones.
+   JavaScript simple: filtros por categoría, animaciones de aparición
+   y respaldo de logos.
    ========================================================= */
 
 document.addEventListener("DOMContentLoaded", () => {
   const cards = Array.from(document.querySelectorAll(".card"));
-  const searchInput = document.getElementById("buscador");
   const filterButtons = Array.from(document.querySelectorAll(".filter-chip"));
-  const counter = document.getElementById("contador");
-  const emptyState = document.getElementById("empty-state");
 
-  let activeFilter = "todos";
-  let searchTerm = "";
-
-  // Aplica juntos el filtro de tipo y el texto de búsqueda a cada tarjeta.
-  function applyFilters() {
-    let visibleCount = 0;
+  // "Todos" muestra lo mismo que "Libros digitales"; las revistas solo
+  // aparecen si el usuario elige explícitamente ese filtro.
+  function applyFilter(filter) {
+    const effectiveFilter = filter === "todos" ? "libros" : filter;
 
     cards.forEach((card) => {
-      const type = card.dataset.type;
-      const name = card.dataset.name.toLowerCase();
-      const desc = card.dataset.desc.toLowerCase();
+      const matches = card.dataset.type === effectiveFilter;
 
-      const matchesFilter = activeFilter === "todos" || type === activeFilter;
-      const matchesSearch = name.includes(searchTerm) || desc.includes(searchTerm);
-      const shouldShow = matchesFilter && matchesSearch;
-
-      if (shouldShow) {
+      if (matches) {
         card.hidden = false;
-        // Reinicia la animación de entrada al volver a mostrarse.
-        card.classList.remove("is-filtered-in");
-        void card.offsetWidth; // fuerza el reflow para reiniciar la animación
-        card.classList.add("is-filtered-in");
-        visibleCount++;
+        requestAnimationFrame(() => {
+          // Si la tarjeta empezó oculta, el observer de scroll nunca la vio: forzamos su aparición.
+          card.classList.add("is-visible");
+          card.classList.remove("is-filtering-out");
+        });
       } else {
-        card.hidden = true;
+        card.classList.add("is-filtering-out");
+        setTimeout(() => {
+          if (card.classList.contains("is-filtering-out")) card.hidden = true;
+        }, 250);
       }
     });
-
-    counter.textContent = `Mostrando ${visibleCount} de ${cards.length} recursos`;
-    emptyState.hidden = visibleCount !== 0;
   }
 
-  // Buscador
-  searchInput.addEventListener("input", (event) => {
-    searchTerm = event.target.value.trim().toLowerCase();
-    applyFilters();
-  });
-
-  // Filtros por tipo de recurso
   filterButtons.forEach((button) => {
     button.addEventListener("click", () => {
       filterButtons.forEach((btn) => {
@@ -58,8 +41,7 @@ document.addEventListener("DOMContentLoaded", () => {
       button.classList.add("is-active");
       button.setAttribute("aria-pressed", "true");
 
-      activeFilter = button.dataset.filter;
-      applyFilters();
+      applyFilter(button.dataset.filter);
     });
   });
 
@@ -67,7 +49,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const revealTargets = document.querySelectorAll("[data-reveal]");
 
   // Escalona la entrada de las tarjetas para un efecto más agradable.
-  document.querySelectorAll(".card").forEach((card, index) => {
+  cards.forEach((card, index) => {
     card.style.setProperty("--stagger", `${index * 80}ms`);
   });
 
@@ -84,9 +66,6 @@ document.addEventListener("DOMContentLoaded", () => {
   );
 
   revealTargets.forEach((target) => observer.observe(target));
-
-  // Estado inicial del contador
-  applyFilters();
 
   // Si el logo real de un recurso no llega a cargar, mostramos el nombre
   // del recurso en su lugar (en vez de dejar el ícono de imagen rota).

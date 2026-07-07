@@ -4,7 +4,7 @@
    ========================================================= */
 
 :root {
-  /* Paleta principal */
+  /* Paleta principal — identidad Tecsup: azul claro predominante */
   --navy: #0e3a5c;
   --blue: #1b6fa8;
   --blue-deep: #124d78;
@@ -17,9 +17,7 @@
   --ink: #1e2a33;
   --ink-soft: #52626d;
 
-  /* Acentos */
-  --mint: #7fcba0;
-  --mint-deep: #4f9f76;
+  /* Acentos mínimos */
   --amber: #eab35c;
   --amber-deep: #c98a2e;
 
@@ -36,7 +34,9 @@
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-* { box-sizing: border-box; }
+* {
+  box-sizing: border-box;
+}
 
 body {
   margin: 0;
@@ -44,16 +44,6 @@ body {
   font-family: var(--font-body);
   color: var(--ink);
   -webkit-font-smoothing: antialiased;
-}
-
-.sr-only {
-  position: absolute;
-  width: 1px; height: 1px;
-  padding: 0; margin: -1px;
-  overflow: hidden;
-  clip: rect(0,0,0,0);
-  white-space: nowrap;
-  border: 0;
 }
 
 /* =========================================================
@@ -66,6 +56,21 @@ body {
   overflow: hidden;
   padding: clamp(2.5rem, 5vw, 5rem) clamp(1.25rem, 4vw, 3rem);
   background: linear-gradient(180deg, var(--sky-soft) 0%, var(--white) 45%);
+}
+
+/* Fondo institucional global: logo Tecsup como marca de agua fija y muy sutil,
+   detrás de todo el contenido de la página. */
+.biblioteca::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  background-image: url("assets/img/tecsup-logo.png");
+  background-repeat: no-repeat;
+  background-position: center 42%;
+  background-size: min(58vw, 760px) auto;
+  opacity: 0.045;
+  pointer-events: none;
 }
 
 .biblioteca__ambient {
@@ -81,21 +86,27 @@ body {
   filter: blur(70px);
   opacity: 0.55;
 }
+
 .blob--sky {
-  width: 480px; height: 480px;
-  top: -180px; right: -120px;
+  width: 480px;
+  height: 480px;
+  top: -180px;
+  right: -120px;
   background: radial-gradient(circle, var(--sky) 0%, transparent 70%);
 }
-.blob--mint {
-  width: 380px; height: 380px;
-  bottom: -160px; left: -100px;
-  background: radial-gradient(circle, rgba(127,203,160,0.35) 0%, transparent 70%);
+
+.blob--accent {
+  width: 380px;
+  height: 380px;
+  bottom: -160px;
+  left: -100px;
+  background: radial-gradient(circle, rgba(63, 160, 220, 0.25) 0%, transparent 70%);
 }
 
 .paper-grid {
   position: absolute;
   inset: 0;
-  background-image: radial-gradient(circle, rgba(14,58,92,0.06) 1px, transparent 1px);
+  background-image: radial-gradient(circle, rgba(14, 58, 92, 0.06) 1px, transparent 1px);
   background-size: 26px 26px;
   mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, black 40%, transparent 100%);
 }
@@ -112,9 +123,19 @@ body {
 
 .biblioteca__header {
   position: relative;
+  isolation: isolate;
+  /* contiene la marca de agua en su propio contexto de apilamiento */
+  z-index: 0;
+  overflow: hidden;
+  /* recorta el logo cuando sobresale del panel */
   text-align: center;
-  max-width: 640px;
+  max-width: 880px;
   margin: 0 auto clamp(2.5rem, 5vw, 4rem);
+  padding: clamp(2.5rem, 6vw, 3.5rem) clamp(1.5rem, 5vw, 3rem);
+  background: linear-gradient(160deg, var(--sky) 0%, var(--white) 72%);
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-soft);
 }
 
 .eyebrow {
@@ -128,6 +149,7 @@ body {
   color: var(--blue-deep);
   margin: 0 0 0.9rem;
 }
+
 .eyebrow::before,
 .eyebrow::after {
   content: "";
@@ -156,12 +178,25 @@ body {
   margin: 0;
 }
 
-.biblioteca__glyph {
-  width: 64px;
-  height: auto;
+/* Insignia institucional del CEDITEC: tarjeta blanca compacta bajo el subtítulo */
+.biblioteca__logo-badge {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   margin: 1.5rem auto 0;
-  color: var(--mint-deep);
-  opacity: 0.7;
+  padding: 0.6rem 1.1rem;
+  background: var(--white);
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-soft);
+}
+
+.biblioteca__logo {
+  display: block;
+  width: 110px;
+  height: auto;
+  object-fit: contain;
 }
 
 /* =========================================================
@@ -169,8 +204,8 @@ body {
    ========================================================= */
 
 .biblioteca__intro {
-  display: grid;
-  grid-template-columns: 1.6fr 1fr;
+  display: block;
+  grid-template-columns: 1fr 1fr;
   gap: clamp(1.5rem, 3vw, 2.5rem);
   align-items: stretch;
   margin-bottom: clamp(1.75rem, 3vw, 2.5rem);
@@ -195,8 +230,10 @@ body {
 
 .intro-quote {
   position: relative;
-  background: linear-gradient(155deg, var(--navy) 0%, var(--blue-deep) 100%);
-  color: var(--white);
+  background: linear-gradient(155deg, var(--sky) 0%, var(--sky-soft) 100%);
+  color: var(--navy);
+  border: 1px solid var(--gray-200);
+  border-left: 4px solid var(--blue);
   border-radius: var(--radius-lg);
   padding: clamp(1.75rem, 3vw, 2.5rem);
   display: flex;
@@ -208,17 +245,19 @@ body {
 .intro-quote::after {
   content: "";
   position: absolute;
-  width: 180px; height: 180px;
-  right: -60px; bottom: -70px;
+  width: 180px;
+  height: 180px;
+  right: -60px;
+  bottom: -70px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(127,203,160,0.35), transparent 70%);
+  background: radial-gradient(circle, rgba(63, 160, 220, 0.22), transparent 70%);
 }
 
 .intro-quote__mark {
   font-family: var(--font-display);
   font-size: 3.5rem;
   line-height: 1;
-  color: var(--amber);
+  color: var(--amber-deep);
   opacity: 0.85;
   display: block;
   margin-bottom: 0.25rem;
@@ -230,6 +269,7 @@ body {
   font-style: italic;
   font-size: 1.1rem;
   line-height: 1.55;
+  color: var(--blue-deep);
   margin: 0;
 }
 
@@ -241,8 +281,8 @@ body {
   display: flex;
   align-items: flex-start;
   gap: 1rem;
-  background: var(--sky);
-  border: 1px dashed var(--blue);
+  background: var(--sky-soft);
+  border: 1px solid var(--sky);
   border-radius: var(--radius-md);
   padding: 1.25rem 1.5rem;
   margin-bottom: clamp(2rem, 4vw, 3rem);
@@ -260,7 +300,11 @@ body {
   color: var(--blue-deep);
   box-shadow: var(--shadow-soft);
 }
-.access-note__icon svg { width: 20px; height: 20px; }
+
+.access-note__icon svg {
+  width: 20px;
+  height: 20px;
+}
 
 .access-note p {
   margin: 0;
@@ -270,84 +314,60 @@ body {
 }
 
 /* =========================================================
-   BUSCADOR Y FILTROS
+   CONTADOR DE RECURSOS (texto informativo, sin lógica)
    ========================================================= */
 
-.toolbar {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 1rem;
+.counter {
+  text-align: center;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--blue-deep);
+  margin: 0 0 1.5rem;
 }
 
-.search {
-  position: relative;
-  flex: 1 1 260px;
-  max-width: 360px;
-}
-
-.search__icon {
-  position: absolute;
-  left: 14px;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 18px;
-  height: 18px;
-  color: var(--ink-soft);
-  pointer-events: none;
-}
-
-.search input {
-  width: 100%;
-  font-family: var(--font-body);
-  font-size: 0.95rem;
-  padding: 0.7rem 1rem 0.7rem 2.5rem;
-  border-radius: 999px;
-  border: 1px solid var(--gray-200);
-  background: var(--white);
-  color: var(--ink);
-  outline: none;
-  transition: border-color 0.2s var(--ease), box-shadow 0.2s var(--ease);
-}
-.search input:focus {
-  border-color: var(--blue);
-  box-shadow: 0 0 0 4px rgba(27,111,168,0.14);
-}
+/* =========================================================
+   FILTROS POR CATEGORÍA
+   ========================================================= */
 
 .filters {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.55rem;
+  justify-content: center;
+  gap: 0.6rem;
+  margin-bottom: 2rem;
 }
 
 .filter-chip {
   font-family: var(--font-body);
-  font-size: 0.85rem;
-  font-weight: 600;
-  color: var(--ink-soft);
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--blue-deep);
   background: var(--white);
   border: 1px solid var(--gray-200);
   border-radius: 999px;
-  padding: 0.5rem 1rem;
+  padding: 0.6rem 1.35rem;
   cursor: pointer;
-  transition: all 0.2s var(--ease);
-}
-.filter-chip:hover {
-  border-color: var(--blue);
-  color: var(--blue-deep);
-}
-.filter-chip.is-active {
-  background: var(--navy);
-  border-color: var(--navy);
-  color: var(--white);
+  transition: background 0.2s var(--ease), color 0.2s var(--ease), border-color 0.2s var(--ease), transform 0.2s var(--ease);
 }
 
-.counter {
-  font-size: 0.85rem;
-  color: var(--ink-soft);
-  margin: 1.5rem 0 1rem;
+.filter-chip:hover {
+  border-color: var(--blue);
+  background: var(--sky-soft);
+  transform: translateY(-1px);
+}
+
+.filter-chip.is-active {
+  background: var(--blue);
+  border-color: var(--blue);
+  color: var(--white);
+  box-shadow: var(--shadow-soft);
+}
+
+.filter-chip:focus-visible {
+  outline: 2px solid var(--blue);
+  outline-offset: 2px;
 }
 
 /* =========================================================
@@ -356,12 +376,9 @@ body {
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* escritorio: 3 tarjetas por fila */
+  grid-template-columns: repeat(3, 1fr);
+  /* escritorio: 3 tarjetas por fila */
   gap: 1.5rem;
-}
-
-.card[hidden] {
-  display: none;
 }
 
 .card {
@@ -374,26 +391,44 @@ body {
   border-radius: var(--radius-md);
   padding: 1.6rem 1.5rem 1.5rem;
   box-shadow: var(--shadow-soft);
-  transition: transform 0.35s var(--ease), box-shadow 0.35s var(--ease), border-color 0.35s var(--ease);
+  transition: opacity 0.3s var(--ease), transform 0.35s var(--ease), box-shadow 0.35s var(--ease), border-color 0.35s var(--ease);
 }
+
 .card::before {
   content: "";
   position: absolute;
-  top: 0; left: 1.5rem; right: 1.5rem;
+  top: 0;
+  left: 1.5rem;
+  right: 1.5rem;
   height: 3px;
   border-radius: 0 0 4px 4px;
   background: var(--accent);
   opacity: 0.8;
 }
-.card[data-type="libros"]        { --accent: var(--blue); }
-.card[data-type="base"]          { --accent: var(--mint-deep); }
-.card[data-type="investigacion"] { --accent: var(--amber-deep); }
-.card[data-type="plataforma"]    { --accent: var(--navy); }
+
+.card[data-type="libros"] {
+  --accent: var(--blue);
+}
+
+.card[data-type="revista"] {
+  --accent: var(--amber-deep);
+}
 
 .card:hover {
   transform: translateY(-6px);
   box-shadow: var(--shadow-lift);
   border-color: var(--accent);
+}
+
+/* Transición suave al filtrar: la tarjeta se desvanece antes de salir del flujo.
+   Especificidad alta para ganarle a .reveal.is-visible (misma tarjeta tiene ambas clases). */
+.card.reveal.is-filtering-out {
+  opacity: 0;
+  transform: scale(0.95);
+}
+
+.card[hidden] {
+  display: none;
 }
 
 /* Caja del logo real del recurso: tamaño fijo, imagen centrada y sin deformar */
@@ -411,12 +446,15 @@ body {
   margin-bottom: 1.1rem;
   padding: 0.75rem;
 }
+
 .resource-logo img {
   width: 100%;
   height: 100%;
-  object-fit: contain; /* conserva las proporciones, nunca deforma el logo */
+  object-fit: contain;
+  /* conserva las proporciones, nunca deforma el logo */
   transition: transform 0.35s var(--ease);
 }
+
 .card:hover .resource-logo img {
   transform: scale(1.04);
 }
@@ -425,6 +463,7 @@ body {
 .resource-logo--fallback img {
   display: none;
 }
+
 .resource-logo--fallback::after {
   content: attr(data-fallback);
   font-family: var(--font-display);
@@ -463,21 +502,15 @@ body {
   -webkit-mask-size: contain;
   mask-size: contain;
 }
+
 .card__tag-icon[data-icon="libros"] {
   -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M4 5c3-2 6-2 8 0v14c-2-2-5-2-8 0V5Zm16 0c-3-2-6-2-8 0v14c2-2 5-2 8 0V5Z'/%3E%3C/svg%3E");
   mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M4 5c3-2 6-2 8 0v14c-2-2-5-2-8 0V5Zm16 0c-3-2-6-2-8 0v14c2-2 5-2 8 0V5Z'/%3E%3C/svg%3E");
 }
-.card__tag-icon[data-icon="base"] {
-  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 3 2 8l10 5 10-5-10-5Zm0 9L2 17l10 5 10-5-10-5Z'/%3E%3C/svg%3E");
-  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 3 2 8l10 5 10-5-10-5Zm0 9L2 17l10 5 10-5-10-5Z'/%3E%3C/svg%3E");
-}
-.card__tag-icon[data-icon="investigacion"] {
-  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M10 3a7 7 0 1 0 4.24 12.6l4.58 4.58a1 1 0 0 0 1.42-1.42l-4.58-4.58A7 7 0 0 0 10 3Zm0 2a5 5 0 1 1 0 10 5 5 0 0 1 0-10Z'/%3E%3C/svg%3E");
-  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M10 3a7 7 0 1 0 4.24 12.6l4.58 4.58a1 1 0 0 0 1.42-1.42l-4.58-4.58A7 7 0 0 0 10 3Zm0 2a5 5 0 1 1 0 10 5 5 0 0 1 0-10Z'/%3E%3C/svg%3E");
-}
-.card__tag-icon[data-icon="plataforma"] {
-  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M7 18a5 5 0 0 1-1-9.9 6 6 0 0 1 11.6-1A4.5 4.5 0 0 1 17 18H7Z'/%3E%3C/svg%3E");
-  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M7 18a5 5 0 0 1-1-9.9 6 6 0 0 1 11.6-1A4.5 4.5 0 0 1 17 18H7Z'/%3E%3C/svg%3E");
+
+.card__tag-icon[data-icon="revista"] {
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M6 3h8l4 4v13H6V3Z'/%3E%3C/svg%3E");
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M6 3h8l4 4v13H6V3Z'/%3E%3C/svg%3E");
 }
 
 .card__name {
@@ -512,27 +545,25 @@ body {
   padding: 0.65rem 1.2rem;
   transition: background 0.25s var(--ease), color 0.25s var(--ease), transform 0.25s var(--ease);
 }
+
 .card__btn svg {
-  width: 16px; height: 16px;
+  width: 16px;
+  height: 16px;
   transition: transform 0.25s var(--ease);
 }
+
 .card:hover .card__btn {
-  background: var(--navy);
+  background: var(--blue);
   color: var(--white);
 }
+
 .card:hover .card__btn svg {
   transform: translateX(3px);
 }
+
 .card__btn:focus-visible {
   outline: 2px solid var(--blue);
   outline-offset: 2px;
-}
-
-.empty-state {
-  text-align: center;
-  color: var(--ink-soft);
-  font-size: 0.95rem;
-  padding: 2.5rem 1rem;
 }
 
 /* =========================================================
@@ -544,27 +575,35 @@ body {
   transform: translateY(24px);
   transition: opacity 0.7s var(--ease), transform 0.7s var(--ease);
 }
+
 .reveal.is-visible {
   opacity: 1;
   transform: translateY(0);
 }
 
-.card.reveal.is-visible { transition-delay: var(--stagger, 0ms); }
-
-@keyframes cardFadeIn {
-  from { opacity: 0; transform: translateY(10px) scale(0.98); }
-  to   { opacity: 1; transform: translateY(0) scale(1); }
+/* Especificidad extra para que el transition de .card no sea reemplazado por el de .reveal */
+.card.reveal {
+  transition: opacity 0.3s var(--ease), transform 0.35s var(--ease), box-shadow 0.35s var(--ease), border-color 0.35s var(--ease);
 }
-.card.is-filtered-in {
-  animation: cardFadeIn 0.4s var(--ease);
+
+.card.reveal.is-visible {
+  transition-delay: var(--stagger, 0ms);
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .reveal, .card, .card__btn, .card__btn svg {
+
+  .reveal,
+  .card,
+  .card__btn,
+  .card__btn svg {
     transition: none !important;
     animation: none !important;
   }
-  .reveal { opacity: 1; transform: none; }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
 }
 
 /* =========================================================
@@ -573,7 +612,8 @@ body {
 
 @media (max-width: 980px) {
   .grid {
-    grid-template-columns: repeat(2, 1fr); /* tablet: 2 tarjetas por fila */
+    grid-template-columns: repeat(2, 1fr);
+    /* tablet: 2 tarjetas por fila */
   }
 }
 
@@ -581,23 +621,24 @@ body {
   .biblioteca__intro {
     grid-template-columns: 1fr;
   }
-  .toolbar {
-    flex-direction: column;
-    align-items: stretch;
-  }
-  .search {
-    max-width: none;
-    flex: none; /* evita que el flex-basis de 260px se aplique como alto al cambiar a columna */
-  }
 }
 
 @media (max-width: 600px) {
   .grid {
-    grid-template-columns: 1fr; /* celular: 1 tarjeta por fila */
+    grid-template-columns: 1fr;
+    /* celular: 1 tarjeta por fila */
+  }
+
+  /* En celular el fondo institucional se reduce y se aclara aún más para no afectar la lectura */
+  .biblioteca::before {
+    background-size: min(80vw, 420px) auto;
+    opacity: 0.035;
   }
 }
 
 @media (max-width: 480px) {
-  .access-note { flex-direction: column; align-items: flex-start; }
-  .biblioteca__glyph { display: none; }
+  .access-note {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 }
