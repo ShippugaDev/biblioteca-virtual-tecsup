@@ -815,21 +815,29 @@ body {
   opacity: 1;
 }
 
-/* Parte inferior */
+/* Parte inferior centrada en toda la pantalla */
 .footer-bottom {
   position: relative;
   z-index: 2;
   margin-top: 48px;
   padding-top: 22px;
   border-top: 1px solid rgba(0, 95, 153, 0.13);
+
+  /* rompe el padding lateral del footer */
+  margin-left: -8%;
+  margin-right: -8%;
+
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-  gap: 24px;
+  text-align: center;
 }
 
-.footer-bottom p {
-  margin: 0;
+.footer-bottom p,
+.footer-copy {
+  margin: 0 auto;
+  width: 100%;
+  text-align: center;
   color: #637c8e;
   font-size: 0.92rem;
   line-height: 1.5;
@@ -851,8 +859,8 @@ body {
   }
 
   .footer-bottom {
-    flex-direction: column;
-    align-items: flex-start;
+    margin-left: -7%;
+    margin-right: -7%;
   }
 }
 
@@ -886,10 +894,12 @@ body {
   .footer-bottom {
     margin-top: 34px;
     padding-top: 18px;
-    gap: 10px;
+    margin-left: -6%;
+    margin-right: -6%;
   }
 
-  .footer-bottom p {
+  .footer-bottom p,
+  .footer-copy {
     font-size: 0.88rem;
   }
 
