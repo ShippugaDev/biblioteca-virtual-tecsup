@@ -696,77 +696,87 @@ body {
 /* =========================
    FOOTER BIBLIOTECA TECSUP
 ========================= */
-
 .tecsup-footer {
   position: relative;
-  margin-top: 80px;
-  padding: 60px 8% 25px;
-  background: linear-gradient(135deg, #eaf7fd 0%, #f8fcff 50%, #dff3fb 100%);
+  margin-top: 90px;
+  padding: 58px 8% 28px;
+  background: linear-gradient(135deg, #eaf7fd 0%, #f7fcff 55%, #e2f5fc 100%);
   border-top: 1px solid rgba(0, 174, 239, 0.18);
-  border-radius: 36px 36px 0 0;
+  border-radius: 34px 34px 0 0;
   overflow: hidden;
-  box-shadow: 0 -12px 35px rgba(0, 80, 130, 0.08);
+  box-shadow: 0 -10px 30px rgba(0, 80, 130, 0.07);
 }
 
+/* Logo de fondo sutil */
 .footer-bg-logo {
   position: absolute;
-  right: -80px;
-  bottom: -80px;
-  width: 420px;
-  height: 220px;
+  right: -70px;
+  bottom: -55px;
+  width: 360px;
+  height: 190px;
   background-image: url("assets/img/tecsup-logo.png");
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
-  opacity: 0.06;
+  opacity: 0.055;
   pointer-events: none;
 }
 
+/* Contenedor principal */
 .footer-container {
   position: relative;
   z-index: 2;
   display: grid;
-  grid-template-columns: 1.5fr 1fr 1fr 1fr;
-  gap: 40px;
+  grid-template-columns: 1.35fr 1fr 0.9fr 0.9fr;
+  gap: 52px;
+  align-items: start;
 }
 
+/* Columna principal */
 .footer-brand h2 {
-  font-size: 1.8rem;
-  color: #004b7a;
-  margin-bottom: 15px;
+  margin: 0 0 18px;
+  color: #004f80;
+  font-size: 1.95rem;
   font-weight: 800;
+  line-height: 1.2;
 }
 
 .footer-brand p {
-  color: #4b6578;
-  line-height: 1.7;
-  font-size: 0.98rem;
-  max-width: 420px;
+  margin: 0;
+  max-width: 430px;
+  color: #526d80;
+  font-size: 1rem;
+  line-height: 1.75;
 }
 
+/* Títulos de columnas */
 .footer-section h3 {
-  color: #005f99;
+  margin: 0 0 18px;
+  color: #00659d;
   font-size: 1.1rem;
-  margin-bottom: 16px;
   font-weight: 800;
 }
 
+/* Texto CEDITEC */
 .footer-section p {
-  color: #4b6578;
-  margin-bottom: 8px;
+  margin: 0 0 12px;
+  color: #526d80;
+  font-size: 1rem;
   line-height: 1.6;
 }
 
+/* Badge */
 .footer-section span {
   display: inline-block;
-  padding: 7px 14px;
-  background: rgba(0, 174, 239, 0.12);
-  color: #0078b8;
+  padding: 8px 16px;
+  background: rgba(0, 174, 239, 0.14);
+  color: #0079b8;
   border-radius: 999px;
-  font-size: 0.85rem;
+  font-size: 0.9rem;
   font-weight: 700;
 }
 
+/* Listas */
 .footer-section ul {
   list-style: none;
   padding: 0;
@@ -774,15 +784,16 @@ body {
 }
 
 .footer-section ul li {
-  margin-bottom: 11px;
+  margin-bottom: 12px;
 }
 
 .footer-section ul li a {
   position: relative;
-  color: #4b6578;
+  color: #526d80;
+  font-size: 1rem;
+  line-height: 1.5;
   text-decoration: none;
-  font-size: 0.95rem;
-  transition: color 0.3s ease, padding-left 0.3s ease;
+  transition: color 0.25s ease, padding-left 0.25s ease;
 }
 
 .footer-section ul li a::before {
@@ -791,51 +802,65 @@ body {
   left: -14px;
   color: #00aeef;
   opacity: 0;
-  transition: opacity 0.3s ease, left 0.3s ease;
+  transition: all 0.25s ease;
 }
 
 .footer-section ul li a:hover {
-  color: #0078b8;
+  color: #0079b8;
   padding-left: 8px;
 }
 
 .footer-section ul li a:hover::before {
+  left: -4px;
   opacity: 1;
-  left: -6px;
 }
 
+/* Parte inferior */
 .footer-bottom {
   position: relative;
   z-index: 2;
-  margin-top: 45px;
+  margin-top: 48px;
   padding-top: 22px;
-  border-top: 1px solid rgba(0, 95, 153, 0.12);
+  border-top: 1px solid rgba(0, 95, 153, 0.13);
   display: flex;
   justify-content: space-between;
-  gap: 20px;
-  color: #5d7588;
-  font-size: 0.9rem;
+  align-items: center;
+  gap: 24px;
 }
 
 .footer-bottom p {
   margin: 0;
+  color: #637c8e;
+  font-size: 0.92rem;
+  line-height: 1.5;
 }
 
-/* Responsive */
+/* Responsive tablet */
 @media (max-width: 1024px) {
+  .tecsup-footer {
+    padding: 52px 7% 28px;
+  }
+
   .footer-container {
     grid-template-columns: repeat(2, 1fr);
+    gap: 38px 48px;
+  }
+
+  .footer-brand p {
+    max-width: 100%;
   }
 
   .footer-bottom {
     flex-direction: column;
-    text-align: center;
+    align-items: flex-start;
   }
 }
 
+/* Responsive celular */
 @media (max-width: 640px) {
   .tecsup-footer {
-    padding: 45px 6% 25px;
+    margin-top: 70px;
+    padding: 42px 6% 24px;
     border-radius: 28px 28px 0 0;
   }
 
@@ -845,12 +870,33 @@ body {
   }
 
   .footer-brand h2 {
-    font-size: 1.5rem;
+    font-size: 1.55rem;
+  }
+
+  .footer-brand p,
+  .footer-section p,
+  .footer-section ul li a {
+    font-size: 0.95rem;
+  }
+
+  .footer-section h3 {
+    margin-bottom: 12px;
+  }
+
+  .footer-bottom {
+    margin-top: 34px;
+    padding-top: 18px;
+    gap: 10px;
+  }
+
+  .footer-bottom p {
+    font-size: 0.88rem;
   }
 
   .footer-bg-logo {
-    width: 300px;
-    right: -120px;
-    bottom: -70px;
+    width: 260px;
+    height: 140px;
+    right: -95px;
+    bottom: -40px;
   }
 }
