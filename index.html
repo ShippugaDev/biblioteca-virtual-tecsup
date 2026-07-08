@@ -56,16 +56,16 @@
               científicos en formato digital, disponibles las 24 horas del día desde cualquier lugar. Nuestra colección
               incluye libros electrónicos a texto completo de reconocidas editoriales internacionales, como Pearson y
               Cengage, además de plataformas especializadas como eLibro y Alphacloud.
-            </p>
-          </div><br>
-          <div class="intro-text">
-            <p>
               Todos estos recursos han sido seleccionados para apoyar las carreras y programas académicos que
               actualmente ofrece TECSUP, garantizando información confiable, vigente y de alta calidad para toda la
               comunidad educativa.
             </p>
-          </div><br>
 
+          </div>
+        </div>
+
+        <!-- ===== Cita motivadora + Aviso de acceso (una sola fila) ===== -->
+        <div class="info-row reveal" data-reveal>
           <aside class="intro-quote" aria-label="Frase motivadora">
             <span class="intro-quote__mark" aria-hidden="true">&ldquo;</span>
             <p>
@@ -75,23 +75,23 @@
               — Christine L. Borgman,
             </p>
           </aside>
-        </div>
 
-        <!-- ===== Aviso de acceso ===== -->
-        <div class="access-note reveal" data-reveal>
-          <span class="access-note__icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none">
-              <path d="M12 15v3m-5-3h10a1 1 0 0 0 1-1v-6a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1Z"
-                stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" />
-              <path d="M9 10V7a3 3 0 1 1 6 0v3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
-            </svg>
-          </span>
-          <p>
-            Para acceder a las bases de datos, libros electrónicos y demás recursos digitales de la Biblioteca Virtual,
-            inicia sesión en el Sistema de Biblioteca utilizando tu usuario y contraseña institucional de TECSUP.
-            <br><a target="_blank" rel="noopener noreferrer"
-              href="https://drive.google.com/file/d/1v4FC8KaSF4f7d30TK-W5jLVSHOJEtPBD/view?usp=sharing">Videotutorial</a>
-          </p>
+          <div class="access-note">
+            <span class="access-note__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none">
+                <path d="M12 15v3m-5-3h10a1 1 0 0 0 1-1v-6a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1Z"
+                  stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" />
+                <path d="M9 10V7a3 3 0 1 1 6 0v3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+              </svg>
+            </span>
+            <p>
+              Para acceder a las bases de datos, libros electrónicos y demás recursos digitales de la Biblioteca
+              Virtual, inicia sesión en el Sistema de Biblioteca utilizando tu usuario y contraseña institucional de
+              TECSUP.
+              <br><a target="_blank" rel="noopener noreferrer"
+                href="https://drive.google.com/file/d/1v4FC8KaSF4f7d30TK-W5jLVSHOJEtPBD/view?usp=sharing">Videotutorial</a>
+            </p>
+          </div>
         </div>
 
         <p class="counter">6 recursos académicos digitales disponibles</p>
@@ -109,9 +109,11 @@
         <div class="grid" id="grid-recursos">
 
           <article class="card reveal" data-reveal data-type="libros">
-            <div class="resource-logo" data-fallback="Gale eBooks">
-              <img src="assets/img/gale-ebooks.png" alt="Logo de Gale eBooks" loading="lazy">
-            </div>
+            <a target="_blank" href="https://link.gale.com/apps/menu?userGroupName=tecsup&prodId=MENU">
+              <div class="resource-logo" data-fallback="Gale eBooks">
+                <img src="assets/img/gale-ebooks.png" alt="Logo de Gale eBooks" loading="lazy">
+              </div>
+            </a>
             <span class="card__tag" data-tag="libros">
               <span class="card__tag-icon" data-icon="libros" aria-hidden="true"></span>
               Libros digitales
@@ -119,21 +121,34 @@
             <h3 class="card__name">Gale eBooks</h3>
             <p class="card__desc">Accede a libros digitales de alta calidad académica para investigación
               multidisciplinaria.</p>
-            <a class="card__btn" target="_blank" rel="noopener noreferrer"
-              href="https://drive.google.com/file/d/1Hi-jJbko0Mxm9VDLg4f0HYhIGQJjVpuW/view?usp=sharing"
-              aria-label="Acceder a Gale eBooks">
-              Guía de uso
-              <svg aria-hidden="true" viewBox="0 0 20 20" fill="none">
-                <path d="M4 10h12m0 0-5-5m5 5-5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
-                  stroke-linejoin="round" />
-              </svg>
-            </a>
+            <div class="card-actions">
+              <a class="btn-access" href="https://link.gale.com/apps/menu?userGroupName=tecsup&prodId=MENU"
+                target="_blank" rel="noopener noreferrer" aria-label="Acceder a Gale eBooks">
+                Acceder
+                <svg aria-hidden="true" viewBox="0 0 20 20" fill="none">
+                  <path d="M4 10h12m0 0-5-5m5 5-5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg>
+              </a>
+              <a class="btn-guide" target="_blank" rel="noopener noreferrer"
+                href="https://drive.google.com/file/d/1Hi-jJbko0Mxm9VDLg4f0HYhIGQJjVpuW/view?usp=sharing"
+                aria-label="Ver guía de uso de Gale eBooks">
+                Guía de uso
+                <svg aria-hidden="true" viewBox="0 0 20 20" fill="none">
+                  <path d="M4 10h12m0 0-5-5m5 5-5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg>
+              </a>
+            </div>
           </article>
 
           <article class="card reveal" data-reveal data-type="revista" hidden>
-            <div class="resource-logo" data-fallback="Gale OneFile Informe Académico">
-              <img src="assets/img/gale-onefile.png" alt="Logo de Gale OneFile Informe Académico" loading="lazy">
-            </div>
+            <a target="_blank" href="https://link.gale.com/apps/menu?userGroupName=tecsup&prodId=MENU"
+              rel="noopener noreferrer">
+              <div class="resource-logo" data-fallback="Gale OneFile Informe Académico">
+                <img src="assets/img/gale-onefile.png" alt="Logo de Gale OneFile Informe Académico" loading="lazy">
+              </div>
+            </a>
             <span class="card__tag" data-tag="revista">
               <span class="card__tag-icon" data-icon="revista" aria-hidden="true"></span>
               Revista digital
@@ -141,42 +156,66 @@
             <h3 class="card__name">Gale OneFile Informe Académico</h3>
             <p class="card__desc">Consulta revistas, artículos académicos y publicaciones especializadas en español y
               portugués.</p>
-            <a class="card__btn" target="_blank" rel="noopener noreferrer"
-              href="https://drive.google.com/file/d/1ZxzdtPbx4ke-tgDiCaq_KNYp_1pz97pB/view?usp=sharing"
-              aria-label="Acceder a Gale OneFile Informe Académico">
-              Guía de uso
-              <svg aria-hidden="true" viewBox="0 0 20 20" fill="none">
-                <path d="M4 10h12m0 0-5-5m5 5-5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
-                  stroke-linejoin="round" />
-              </svg>
-            </a>
+            <div class="card-actions">
+              <a class="btn-access" href="https://link.gale.com/apps/menu?userGroupName=tecsup&prodId=MENU"
+                target="_blank" rel="noopener noreferrer" aria-label="Acceder a Gale OneFile Informe Académico">
+                Acceder
+                <svg aria-hidden="true" viewBox="0 0 20 20" fill="none">
+                  <path d="M4 10h12m0 0-5-5m5 5-5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg>
+              </a>
+              <a class="btn-guide" target="_blank" rel="noopener noreferrer"
+                href="https://drive.google.com/file/d/1ZxzdtPbx4ke-tgDiCaq_KNYp_1pz97pB/view?usp=sharing"
+                aria-label="Ver guía de uso de Gale OneFile Informe Académico">
+                Guía de uso
+                <svg aria-hidden="true" viewBox="0 0 20 20" fill="none">
+                  <path d="M4 10h12m0 0-5-5m5 5-5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg>
+              </a>
+            </div>
           </article>
 
           <article class="card reveal" data-reveal data-type="libros">
-            <div class="resource-logo" data-fallback="Cengage E-book">
-              <img src="assets/img/cengage-ebook.png" alt="Logo de Cengage E-book" loading="lazy">
-            </div>
+            <a target="_blank" href="https://www.ebooks7-24.com/biblioteca.aspx">
+              <div class="resource-logo" data-fallback="Cengage E-book">
+                <img src="assets/img/cengage-ebook.png" alt="Logo de Cengage E-book" loading="lazy">
+              </div>
+            </a>
             <span class="card__tag" data-tag="libros">
               <span class="card__tag-icon" data-icon="libros" aria-hidden="true"></span>
               Libros digitales
             </span>
             <h3 class="card__name">Cengage E-book</h3>
             <p class="card__desc">Explora materiales digitales orientados al aprendizaje técnico y profesional.</p>
-            <a class="card__btn" target="_blank" rel="noopener noreferrer"
-              href="https://drive.google.com/file/d/1n-8hM_HoJcOY6hXxqS3fgDjESFOAHdf_/view?usp=sharing"
-              aria-label="Acceder a Cengage E-book">
-              Guía de uso
-              <svg aria-hidden="true" viewBox="0 0 20 20" fill="none">
-                <path d="M4 10h12m0 0-5-5m5 5-5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
-                  stroke-linejoin="round" />
-              </svg>
-            </a>
+            <div class="card-actions">
+              <a class="btn-access" href="https://www.ebooks7-24.com/biblioteca.aspx" target="_blank"
+                rel="noopener noreferrer" aria-label="Acceder a Cengage E-book">
+                Acceder
+                <svg aria-hidden="true" viewBox="0 0 20 20" fill="none">
+                  <path d="M4 10h12m0 0-5-5m5 5-5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg>
+              </a>
+              <a class="btn-guide" target="_blank" rel="noopener noreferrer"
+                href="https://drive.google.com/file/d/1n-8hM_HoJcOY6hXxqS3fgDjESFOAHdf_/view?usp=sharing"
+                aria-label="Ver guía de uso de Cengage E-book">
+                Guía de uso
+                <svg aria-hidden="true" viewBox="0 0 20 20" fill="none">
+                  <path d="M4 10h12m0 0-5-5m5 5-5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg>
+              </a>
+            </div>
           </article>
 
           <article class="card reveal" data-reveal data-type="libros">
-            <div class="resource-logo" data-fallback="Pearson E-book">
-              <img src="assets/img/pearson-ebook.png" alt="Logo de Pearson E-book" loading="lazy">
-            </div>
+            <a href="https://www.ebooks7-24.com/biblioteca.aspx">
+              <div class="resource-logo" data-fallback="Pearson E-book">
+                <img src="assets/img/pearson-ebook.png" alt="Logo de Pearson E-book" loading="lazy">
+              </div>
+            </a>
             <span class="card__tag" data-tag="libros">
               <span class="card__tag-icon" data-icon="libros" aria-hidden="true"></span>
               Libros digitales
@@ -184,20 +223,33 @@
             <h3 class="card__name">Pearson E-book</h3>
             <p class="card__desc">Revisa libros académicos digitales para fortalecer tus conocimientos en distintas
               áreas.</p>
-            <a class="card__btn" target="_blank" rel="noopener noreferrer"
-              href="https://www.ebooks7-24.com/biblioteca.aspx" aria-label="Acceder a Pearson E-book">
-              Guía de uso
-              <svg aria-hidden="true" viewBox="0 0 20 20" fill="none">
-                <path d="M4 10h12m0 0-5-5m5 5-5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
-                  stroke-linejoin="round" />
-              </svg>
-            </a>
+            <div class="card-actions">
+              <a class="btn-access" href="https://www.ebooks7-24.com/biblioteca.aspx" target="_blank"
+                rel="noopener noreferrer" aria-label="Acceder a Pearson E-book">
+                Acceder
+                <svg aria-hidden="true" viewBox="0 0 20 20" fill="none">
+                  <path d="M4 10h12m0 0-5-5m5 5-5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg>
+              </a>
+              <a class="btn-guide" target="_blank" rel="noopener noreferrer"
+                href="https://www.ebooks7-24.com/biblioteca.aspx" aria-label="Ver guía de uso de Pearson E-book">
+                Guía de uso
+                <svg aria-hidden="true" viewBox="0 0 20 20" fill="none">
+                  <path d="M4 10h12m0 0-5-5m5 5-5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg>
+              </a>
+            </div>
           </article>
 
           <article class="card reveal" data-reveal data-type="revista" hidden>
-            <div class="resource-logo" data-fallback="EBSCOhost">
-              <img src="assets/img/ebscohost.jpg" alt="Logo de EBSCOhost" loading="lazy">
-            </div>
+            <a target="_blank"
+              href="https://search.ebscohost.com/login.aspx?authtype=ip,url,uid&custid=ns003565&groupid=main&profile=ehost">
+              <div class="resource-logo" data-fallback="EBSCOhost">
+                <img src="assets/img/ebscohost.jpg" alt="Logo de EBSCOhost" loading="lazy">
+              </div>
+            </a>
             <span class="card__tag" data-tag="revista">
               <span class="card__tag-icon" data-icon="revista" aria-hidden="true"></span>
               Revista digital
@@ -205,35 +257,58 @@
             <h3 class="card__name">EBSCOhost</h3>
             <p class="card__desc">Accede a bases de datos académicas, artículos, revistas y recursos de
               investigación.</p>
-            <a class="card__btn" target="_blank" rel="noopener noreferrer"
-              href="https://drive.google.com/file/d/13N96hawV2pSTOCUusnelVaYk94im1s5U/view?usp=sharing"
-              aria-label="Acceder a EBSCOhost">
-              Guía de uso
-              <svg aria-hidden="true" viewBox="0 0 20 20" fill="none">
-                <path d="M4 10h12m0 0-5-5m5 5-5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
-                  stroke-linejoin="round" />
-              </svg>
-            </a>
+            <div class="card-actions">
+              <a class="btn-access"
+                href="https://search.ebscohost.com/login.aspx?authtype=ip,url,uid&custid=ns003565&groupid=main&profile=ehost"
+                target="_blank" rel="noopener noreferrer" aria-label="Acceder a EBSCOhost">
+                Acceder
+                <svg aria-hidden="true" viewBox="0 0 20 20" fill="none">
+                  <path d="M4 10h12m0 0-5-5m5 5-5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg>
+              </a>
+              <a class="btn-guide" target="_blank" rel="noopener noreferrer"
+                href="https://drive.google.com/file/d/13N96hawV2pSTOCUusnelVaYk94im1s5U/view?usp=sharing"
+                aria-label="Ver guía de uso de EBSCOhost">
+                Guía de uso
+                <svg aria-hidden="true" viewBox="0 0 20 20" fill="none">
+                  <path d="M4 10h12m0 0-5-5m5 5-5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg>
+              </a>
+            </div>
           </article>
 
           <article class="card reveal" data-reveal data-type="libros">
-            <div class="resource-logo" data-fallback="AlphaCloud">
-              <img src="assets/img/alphacloud.png" alt="Logo de AlphaCloud" loading="lazy">
-            </div>
+            <a target="_blank" href="https://www.alphaeditorialcloud.com/library">
+              <div class="resource-logo" data-fallback="AlphaCloud">
+                <img src="assets/img/alphacloud.png" alt="Logo de AlphaCloud" loading="lazy">
+              </div>
+            </a>
             <span class="card__tag" data-tag="libros">
               <span class="card__tag-icon" data-icon="libros" aria-hidden="true"></span>
               Libros digitales
             </span>
             <h3 class="card__name">AlphaCloud</h3>
             <p class="card__desc">Plataforma digital de acceso a recursos académicos y contenidos especializados.</p>
-            <a class="card__btn" target="_blank" rel="noopener noreferrer"
-              href="https://www.alphaeditorialcloud.com/library" aria-label="Acceder a AlphaCloud">
-              Guía de uso
-              <svg aria-hidden="true" viewBox="0 0 20 20" fill="none">
-                <path d="M4 10h12m0 0-5-5m5 5-5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
-                  stroke-linejoin="round" />
-              </svg>
-            </a>
+            <div class="card-actions">
+              <a class="btn-access" href="https://www.alphaeditorialcloud.com/library" target="_blank"
+                rel="noopener noreferrer" aria-label="Acceder a AlphaCloud">
+                Acceder
+                <svg aria-hidden="true" viewBox="0 0 20 20" fill="none">
+                  <path d="M4 10h12m0 0-5-5m5 5-5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg>
+              </a>
+              <a class="btn-guide" target="_blank" rel="noopener noreferrer"
+                href="https://www.alphaeditorialcloud.com/library" aria-label="Ver guía de uso de AlphaCloud">
+                Guía de uso
+                <svg aria-hidden="true" viewBox="0 0 20 20" fill="none">
+                  <path d="M4 10h12m0 0-5-5m5 5-5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg>
+              </a>
+            </div>
           </article>
 
         </div>
@@ -241,6 +316,56 @@
       </div>
     </section>
   </main>
+  <footer class="tecsup-footer">
+    <div class="footer-bg-logo"></div>
+
+    <div class="footer-container">
+      <div class="footer-brand">
+        <h2>Biblioteca Virtual Tecsup</h2>
+        <p>
+          Un espacio digital para acceder a recursos académicos, libros digitales
+          y revistas especializadas que fortalecen el aprendizaje y la investigación.
+        </p>
+      </div>
+
+      <div class="footer-section">
+        <h3>CEDITEC</h3>
+        <p>Centro de Recursos Académicos</p>
+        <span>Tecnología con sentido</span>
+      </div>
+
+      <div class="footer-section">
+        <h3>Accesos rápidos</h3>
+        <ul>
+
+          <li><a target="_blank" href="https://app.tecsup.edu.pe/SGA/biblioteca/index.html">Sistema de Biblioteca</a>
+          </li>
+          <li><a target="_blank"
+              href="https://drive.google.com/file/d/1v4FC8KaSF4f7d30TK-W5jLVSHOJEtPBD/view?usp=sharing">Videotutorial</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <h3>Soporte</h3>
+        <ul>
+          <li><a target="_blank"
+              href="https://www.tecsup.edu.pe/landing-pardot/form-drupal/contactanos-general.html">Atención al
+              usuario</a></li>
+
+          <li><a target="_blank"
+              href="https://www.tecsup.edu.pe/landing-pardot/form-drupal/contactanos-general.html">Soporte académico</a>
+          </li>
+
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2026 Tecsup. Biblioteca Virtual CEDITEC.</p>
+      <p>Diseñado para mejorar la experiencia académica de los estudiantes.</p>
+    </div>
+  </footer>
 
   <script src="script.js"></script>
 </body>

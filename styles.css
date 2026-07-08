@@ -274,6 +274,18 @@ body {
 }
 
 /* =========================================================
+   FILA: cita motivadora + aviso de acceso, lado a lado
+   ========================================================= */
+
+.info-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: stretch;
+  gap: clamp(1.5rem, 3vw, 2.5rem);
+  margin-bottom: clamp(2rem, 4vw, 3rem);
+}
+
+/* =========================================================
    AVISO DE ACCESO
    ========================================================= */
 
@@ -285,7 +297,6 @@ body {
   border: 1px solid var(--sky);
   border-radius: var(--radius-md);
   padding: 1.25rem 1.5rem;
-  margin-bottom: clamp(2rem, 4vw, 3rem);
 }
 
 .access-note__icon {
@@ -528,39 +539,70 @@ body {
   flex-grow: 1;
 }
 
-.card__btn {
+/* Grupo de botones al final de la tarjeta: Acceder (principal) + Guía de uso (secundario) */
+.card-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.btn-access,
+.btn-guide {
+  flex: 1 1 130px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 0.4rem;
   font-family: var(--font-body);
   font-weight: 700;
-  font-size: 0.9rem;
+  font-size: 0.86rem;
   text-decoration: none;
-  color: var(--blue-deep);
-  background: var(--sky);
-  border: 1px solid transparent;
   border-radius: 999px;
-  padding: 0.65rem 1.2rem;
-  transition: background 0.25s var(--ease), color 0.25s var(--ease), transform 0.25s var(--ease);
+  padding: 0.65rem 1rem;
+  border: 1px solid transparent;
+  transition: background 0.25s var(--ease), color 0.25s var(--ease), border-color 0.25s var(--ease), transform 0.25s var(--ease);
 }
 
-.card__btn svg {
-  width: 16px;
-  height: 16px;
+.btn-access svg,
+.btn-guide svg {
+  width: 15px;
+  height: 15px;
   transition: transform 0.25s var(--ease);
 }
 
-.card:hover .card__btn {
+/* Acceder: botón principal, azul institucional sólido */
+.btn-access {
   background: var(--blue);
   color: var(--white);
 }
 
-.card:hover .card__btn svg {
+.btn-access:hover {
+  background: var(--blue-deep);
+  transform: translateY(-2px);
+}
+
+.btn-access:hover svg {
   transform: translateX(3px);
 }
 
-.card__btn:focus-visible {
+/* Guía de uso: botón secundario, azul claro suave */
+.btn-guide {
+  background: var(--sky);
+  color: var(--blue-deep);
+}
+
+.btn-guide:hover {
+  background: var(--white);
+  border-color: var(--blue);
+  transform: translateY(-2px);
+}
+
+.btn-guide:hover svg {
+  transform: translateX(3px);
+}
+
+.btn-access:focus-visible,
+.btn-guide:focus-visible {
   outline: 2px solid var(--blue);
   outline-offset: 2px;
 }
@@ -593,8 +635,10 @@ body {
 
   .reveal,
   .card,
-  .card__btn,
-  .card__btn svg {
+  .btn-access,
+  .btn-guide,
+  .btn-access svg,
+  .btn-guide svg {
     transition: none !important;
     animation: none !important;
   }
@@ -620,6 +664,10 @@ body {
   .biblioteca__intro {
     grid-template-columns: 1fr;
   }
+
+  .info-row {
+    grid-template-columns: 1fr;
+  }
 }
 
 @media (max-width: 600px) {
@@ -639,5 +687,167 @@ body {
   .access-note {
     flex-direction: column;
     align-items: flex-start;
+  }
+}
+
+/* =========================
+   FOOTER BIBLIOTECA TECSUP
+========================= */
+
+.tecsup-footer {
+  position: relative;
+  margin-top: 80px;
+  padding: 60px 8% 25px;
+  background: linear-gradient(135deg, #eaf7fd 0%, #f8fcff 50%, #dff3fb 100%);
+  border-top: 1px solid rgba(0, 174, 239, 0.18);
+  border-radius: 36px 36px 0 0;
+  overflow: hidden;
+  box-shadow: 0 -12px 35px rgba(0, 80, 130, 0.08);
+}
+
+.footer-bg-logo {
+  position: absolute;
+  right: -80px;
+  bottom: -80px;
+  width: 420px;
+  height: 220px;
+  background-image: url("assets/img/tecsup-logo.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  opacity: 0.06;
+  pointer-events: none;
+}
+
+.footer-container {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr 1fr;
+  gap: 40px;
+}
+
+.footer-brand h2 {
+  font-size: 1.8rem;
+  color: #004b7a;
+  margin-bottom: 15px;
+  font-weight: 800;
+}
+
+.footer-brand p {
+  color: #4b6578;
+  line-height: 1.7;
+  font-size: 0.98rem;
+  max-width: 420px;
+}
+
+.footer-section h3 {
+  color: #005f99;
+  font-size: 1.1rem;
+  margin-bottom: 16px;
+  font-weight: 800;
+}
+
+.footer-section p {
+  color: #4b6578;
+  margin-bottom: 8px;
+  line-height: 1.6;
+}
+
+.footer-section span {
+  display: inline-block;
+  padding: 7px 14px;
+  background: rgba(0, 174, 239, 0.12);
+  color: #0078b8;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-section ul li {
+  margin-bottom: 11px;
+}
+
+.footer-section ul li a {
+  position: relative;
+  color: #4b6578;
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: color 0.3s ease, padding-left 0.3s ease;
+}
+
+.footer-section ul li a::before {
+  content: "›";
+  position: absolute;
+  left: -14px;
+  color: #00aeef;
+  opacity: 0;
+  transition: opacity 0.3s ease, left 0.3s ease;
+}
+
+.footer-section ul li a:hover {
+  color: #0078b8;
+  padding-left: 8px;
+}
+
+.footer-section ul li a:hover::before {
+  opacity: 1;
+  left: -6px;
+}
+
+.footer-bottom {
+  position: relative;
+  z-index: 2;
+  margin-top: 45px;
+  padding-top: 22px;
+  border-top: 1px solid rgba(0, 95, 153, 0.12);
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  color: #5d7588;
+  font-size: 0.9rem;
+}
+
+.footer-bottom p {
+  margin: 0;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .footer-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+@media (max-width: 640px) {
+  .tecsup-footer {
+    padding: 45px 6% 25px;
+    border-radius: 28px 28px 0 0;
+  }
+
+  .footer-container {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .footer-brand h2 {
+    font-size: 1.5rem;
+  }
+
+  .footer-bg-logo {
+    width: 300px;
+    right: -120px;
+    bottom: -70px;
   }
 }
